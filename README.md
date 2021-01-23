@@ -2,7 +2,6 @@
 
 *PHP version required 7.3*
 
-```
 **How to use ?**
 
 ``` php
