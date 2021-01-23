@@ -1,0 +1,24 @@
+{
+  "name": "devcoder-xyz/php-dependency-injection",
+  "description": "A simple PSR-11 PHP Dependency Injection",
+  "type": "package",
+  "require": {
+    "php": ">=7.3",
+    "psr/container": "^1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.1"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "DevCoder\\DependencyInjection\\": "src"
+    }
+  },
+  "authors": [
+    {
+      "name": "Fad M.R",
+      "email": "fadymichel@devcoder.xyz"
+    }
+  ]
+}
