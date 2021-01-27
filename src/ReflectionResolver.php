@@ -31,7 +31,6 @@ class ReflectionResolver implements ResolverClassInterface
                 $param->getClass()->getName()
             );
         }
-//        var_dump($newInstanceParams);
 
         return $reflectionClass->newInstanceArgs(
             $newInstanceParams

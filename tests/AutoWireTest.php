@@ -56,5 +56,4 @@ class AutoWireTest extends TestCase {
         $service = $container->get(LazyService::class);
         $this->assertSame($container->get(Database::class), $service->getDatabase());
     }
-
 }

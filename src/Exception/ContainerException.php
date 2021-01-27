@@ -5,7 +5,7 @@ namespace DevCoder\DependencyInjection\Exception;
 use Psr\Container\ContainerExceptionInterface;
 
 /**
- * TestClass NotFoundException
+ * Class ContainerException
  * @package DevCoder\DependencyInjection\Exception
  */
 class ContainerException extends \Exception implements ContainerExceptionInterface
