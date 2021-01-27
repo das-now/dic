@@ -4,7 +4,7 @@ namespace DevCoder\DependencyInjection\Exception;
 use Psr\Container\NotFoundExceptionInterface;
 
 /**
- * Class NotFoundException
+ * TestClass NotFoundException
  * @package DevCoder\DependencyInjection\Exception
  */
 class NotFoundException extends \InvalidArgumentException implements NotFoundExceptionInterface

@@ -12,7 +12,8 @@
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "DevCoder\\DependencyInjection\\": "src"
+      "DevCoder\\DependencyInjection\\": "src",
+      "Test\\DevCoder\\": "tests"
     }
   },
   "authors": [
