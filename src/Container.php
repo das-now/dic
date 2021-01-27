@@ -2,7 +2,9 @@
 
 namespace DevCoder\DependencyInjection;
 
+use DevCoder\DependencyInjection\Exception\ContainerException;
 use DevCoder\DependencyInjection\Exception\NotFoundException;
+use DevCoder\DependencyInjection\Interfaces\ResolverClassInterface;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -19,9 +21,15 @@ class Container implements ContainerInterface
      */
     private $resolvedEntries = [];
 
-    public function __construct(array $definitions)
+    /**
+     * @var ResolverClassInterface|null
+     */
+    private $resolver;
+
+    public function __construct(array $definitions, ?ResolverClassInterface $resolver = null)
     {
         $this->definitions = array_merge($definitions, [ContainerInterface::class => $this]);
+        $this->resolver = $resolver;
     }
 
     /**
@@ -36,17 +44,19 @@ class Container implements ContainerInterface
      */
     public function get($id)
     {
-        if (!$this->has($id)) {
+        if ($this->has($id) === false) {
             throw new NotFoundException("No entry or class found for '$id'");
         }
 
         if (array_key_exists($id, $this->resolvedEntries)) {
             return $this->resolvedEntries[$id];
-        }
-
-        $value = $this->definitions[$id];
-        if ($value instanceof \Closure) {
-            $value = $value($this);
+        } elseif (array_key_exists($id, $this->definitions)) {
+            $value = $this->definitions[$id];
+            if ($value instanceof \Closure) {
+                $value = $value($this);
+            }
+        } else {
+            $value = $this->resolve($id);
         }
 
         $this->resolvedEntries[$id] = $value;
@@ -66,6 +76,28 @@ class Container implements ContainerInterface
      */
     public function has($id)
     {
-        return array_key_exists($id, $this->definitions) || array_key_exists($id, $this->resolvedEntries);
+        if (array_key_exists($id, $this->definitions) || array_key_exists($id, $this->resolvedEntries)) {
+            return true;
+        }
+
+        return class_exists($id) && $this->resolver instanceof ResolverClassInterface;
+    }
+
+    /**
+     * @param string $class
+     * @return object
+     * @throws ContainerException
+     */
+    private function resolve(string $class): object
+    {
+        if ($this->resolver instanceof ResolverClassInterface) {
+            try {
+                return $this->resolver->resolve($class, $this);
+            } catch (\Exception $e) {
+                throw new ContainerException(sprintf('Cannot autowire entry "%s" : %s', $class, $e->getMessage()));
+            }
+        }
+
+        throw new ContainerException("Autowiring is disabled, resolver is missing");
     }
 }
