@@ -22,15 +22,16 @@ class ReflectionResolver implements ResolverClassInterface
         }
 
         if (($params = $constructor->getParameters()) === []) {
-            return $reflectionClass->newInstance();
+            $reflectionClass->newInstance();
         }
 
         $newInstanceParams = [];
         foreach ($params as $param) {
-            $newInstanceParams[] = $param->getClass() === null ? null : $container->get(
+            $newInstanceParams[] = $param->getClass() === null ? $param->getDefaultValue() : $container->get(
                 $param->getClass()->getName()
             );
         }
+//        var_dump($newInstanceParams);
 
         return $reflectionClass->newInstanceArgs(
             $newInstanceParams
