@@ -20,6 +20,9 @@ class AutoWireTest extends TestCase {
     {
         $container = new Container([], new ReflectionResolver());
 
+        $this->assertTrue($container->has(LazyService::class));
+        $this->assertTrue($container->has(Database::class));
+
         $database = $container->get(Database::class);
         /**
          * @var LazyService $service
@@ -38,11 +41,7 @@ class AutoWireTest extends TestCase {
          * @var LazyService $service
          */
         $service = $container->get(LazyService::class);
-        $this->assertInstanceOf(LazyService::class, $service);
-
-        $database = $container->get(Database::class);
-
-        $this->assertSame($database, $service->getDatabase());
+        $this->assertSame($container->get(Database::class), $service->getDatabase());
     }
 
 }
