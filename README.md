@@ -1,4 +1,5 @@
 # PHP Dependency Injection Container PSR-11
+[![Latest Stable Version](https://poser.pugx.org/devcoder-xyz/php-dependency-injection/v)](//packagist.org/packages/devcoder-xyz/php-dependency-injection) [![Total Downloads](https://poser.pugx.org/devcoder-xyz/php-dependency-injection/downloads)](//packagist.org/packages/devcoder-xyz/php-dependency-injection) [![Latest Unstable Version](https://poser.pugx.org/devcoder-xyz/php-dependency-injection/v/unstable)](//packagist.org/packages/devcoder-xyz/php-dependency-injection) [![License](https://poser.pugx.org/devcoder-xyz/php-dependency-injection/license)](//packagist.org/packages/devcoder-xyz/php-dependency-injection)
 
 *PHP version required 7.3*
 
