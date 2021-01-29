@@ -22,7 +22,7 @@ class ReflectionResolver implements ResolverClassInterface
         }
 
         if (($params = $constructor->getParameters()) === []) {
-            $reflectionClass->newInstance();
+            return $reflectionClass->newInstance();
         }
 
         $newInstanceParams = [];
