@@ -2,6 +2,7 @@
   "name": "das-now/dic",
   "description": "A simple PSR-11 PHP Dependency Injection",
   "type": "package",
+  "version": "1.0.0",
   "require": {
     "php": ">=7.3",
     "psr/container": "^2.0"
