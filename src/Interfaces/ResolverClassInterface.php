@@ -1,20 +1,27 @@
 <?php
+/**
+ * Resolver interface.
+ *
+ * @package DasNow\dic
+ */
 
-namespace DevCoder\DependencyInjection\Interfaces;
+namespace DasNow\dic\Interfaces;
 
 use Psr\Container\ContainerInterface;
 
 /**
- * Interface ResolverClassInterface
- * @package DevCoder\DependencyInjection\Interfaces
+ * Interface ResolverClassInterface.
  */
-interface ResolverClassInterface
-{
-    /**
-     * @param string $class
-     * @param ContainerInterface $container
-     * @return object
-     * @throws \Exception if can't resolve class
-     */
-    public function resolve(string $class, ContainerInterface $container): object;
+interface ResolverClassInterface {
+	/**
+	 * Resolving class.
+	 *
+	 * @param string             $class          Class name.
+	 * @param ContainerInterface $container      Container object.
+	 *
+	 * @return object       Resolved class.
+	 *
+	 * @throws \Exception   If can't resolve class.
+	 */
+	public function resolve( string $class, ContainerInterface $container ): object;
 }

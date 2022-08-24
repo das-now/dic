@@ -1,13 +1,17 @@
 <?php
+/**
+ * ContainerExceptionInterface implementation.
+ *
+ * @package DasNow\dic
+ */
 
-namespace DevCoder\DependencyInjection\Exception;
+namespace DasNow\dic\Exception;
 
 use Psr\Container\ContainerExceptionInterface;
 
 /**
- * Class ContainerException
- * @package DevCoder\DependencyInjection\Exception
+ * Class ContainerException.
  */
-class ContainerException extends \Exception implements ContainerExceptionInterface
-{
+class ContainerException extends \Exception implements ContainerExceptionInterface {
+
 }

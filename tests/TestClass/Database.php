@@ -1,10 +1,10 @@
 <?php
+/**
+ * @package DasNow\Tests
+ */
 
+namespace DasNow\Tests\TestClass;
 
-namespace Test\DevCoder\TestClass;
-
-
-class Database
-{
+class Database {
 
 }

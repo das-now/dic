@@ -1,19 +1,20 @@
 <?php
+/**
+ * Test Parameters class.
+ *
+ * @package DasNow\Tests
+ */
 
+namespace DasNow\Tests\TestClass;
 
-namespace Test\DevCoder\TestClass;
+class Parameters {
+	/**
+	 * @var array
+	 */
+	private $parameters = array();
 
-
-class Parameters
-{
-    /**
-     * @var array
-     */
-    private $parameters = [];
-
-    public function __construct(array $parameters = [])
-    {
-        $this->parameters = $parameters;
-    }
+	public function __construct( array $parameters = array() ) {
+		$this->parameters = $parameters;
+	}
 
 }

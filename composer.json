@@ -1,19 +1,16 @@
 {
-  "name": "devcoder-xyz/php-dependency-injection",
+  "name": "das-now/dic",
   "description": "A simple PSR-11 PHP Dependency Injection",
   "type": "package",
   "require": {
     "php": ">=7.3",
-    "psr/container": "^1.0"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^8.1"
+    "psr/container": "^2.0"
   },
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "DevCoder\\DependencyInjection\\": "src",
-      "Test\\DevCoder\\": "tests"
+      "DasNow\\dic\\": "src",
+      "DasNow\\Tests\\": "tests"
     }
   },
   "authors": [
@@ -21,5 +18,11 @@
       "name": "Fad M.R",
       "email": "fadymichel@devcoder.xyz"
     }
-  ]
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  },
+  "scripts": {
+      "test": "phpunit"
+  }
 }

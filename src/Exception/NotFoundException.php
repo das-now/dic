@@ -1,12 +1,17 @@
 <?php
-namespace DevCoder\DependencyInjection\Exception;
+/**
+ * NotFoundExceptionInterface implementation.
+ *
+ * @package DasNow\dic
+ */
+
+namespace DasNow\dic\Exception;
 
 use Psr\Container\NotFoundExceptionInterface;
 
 /**
- * Class NotFoundException
- * @package DevCoder\DependencyInjection\Exception
+ * Class NotFoundException.
  */
-class NotFoundException extends \InvalidArgumentException implements NotFoundExceptionInterface
-{
+class NotFoundException extends \InvalidArgumentException implements NotFoundExceptionInterface {
+
 }
