@@ -1,17 +1,16 @@
 {
   "name": "das-now/dic",
-  "description": "A simple PSR-11 PHP Dependency Injection",
+  "description": "Dependency Injection container (PSR-11)",
   "type": "package",
   "version": "1.0.0",
+  "license": "MIT",
   "require": {
     "php": ">=7.3",
     "psr/container": "^2.0"
   },
-  "license": "MIT",
   "autoload": {
     "psr-4": {
-      "DasNow\\dic\\": "src",
-      "DasNow\\Tests\\": "tests"
+      "DasNow\\dic\\": "src"
     }
   },
   "authors": [
@@ -20,6 +19,9 @@
       "email": "fadymichel@devcoder.xyz"
     }
   ],
+  "config": {
+    "optimize-autoloader": true
+  },
   "require-dev": {
     "phpunit/phpunit": "^9.5"
   },
